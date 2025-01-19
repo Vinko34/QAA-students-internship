@@ -11,7 +11,7 @@ import { expect, test } from '@playwright/test'
 test('Navigate to valamar.com & validate page title', async ({ page }) => {
 
   const valamarURL = 'https://valamar.com' // Added missing : so that the URL is working 
-  await page.goto(valamarURL, {waitUntil :"commit"})
+  await page.goto(valamarURL, {waitUntil :"commit"}) //Added waitUntil commit so that it waits until sending a request
 
   await expect(
     page,
@@ -22,7 +22,7 @@ test('Navigate to valamar.com & validate page title', async ({ page }) => {
 test('Navigate to valamar.com & click on Log in button', async ({ page }) => {
 
   const valamarURL = 'https://valamar.com'
-  await page.goto(valamarURL, {waitUntil :"domcontentloaded"})
+  await page.goto(valamarURL, {waitUntil :"domcontentloaded"}) // Added wait until so it waits for the whole page to load
   await page.locator('button[id="azureb2c-login"]').click({ timeout: 30000 }) // Changed div to button to locate the SIGN IN
 
   await page
